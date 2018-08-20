@@ -1,0 +1,5 @@
+[lakuh]
+database = "~/.lakuh/db/main.db"
+
+[audio]
+storage = "~/.lakuh/audio"
