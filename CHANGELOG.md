@@ -7,9 +7,27 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ## [Unreleased]
 
 - Web Interface
-- Distrobution code
+- Distribution code
 
-## [0.1.0] - 2018-08-16
+## [0.2.0] - 2018-08-21
+
+### Added
+
+- Basic user API.
+- Create default toml file if none found.
+
+### Changed
+
+- Moved defaults 
+- Short description about lakuh
+
+### Fixed
+
+- Spelling.
+- Formating for Roadmap.
+- Incorrect date for v0.1.0
+
+## [0.1.0] - 2018-08-20
 
 ### Added 
 

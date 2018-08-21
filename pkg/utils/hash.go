@@ -47,3 +47,12 @@ func SHA256(src string) (string, error) {
 	return hex.EncodeToString(check.Sum(nil)), nil
 
 }
+
+// SHA256string returns the sha256 checksum of a string.
+func SHA256string(src string) string {
+
+	check := sha256.New()
+	check.Write([]byte(src))
+
+	return hex.EncodeToString(check.Sum(nil))
+}

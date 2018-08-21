@@ -10,41 +10,6 @@ import (
 // DB is publicly accessable.
 var DB *gorm.DB
 
-// // Music is the interface.
-// type Music interface {
-// 	Create() error
-// 	Update() error
-// 	Delete() error
-
-// 	Find() error
-// 	FindAll(interface{}) error
-// }
-
-// // Create something.
-// func Create(m Music) error {
-// 	return m.Create()
-// }
-
-// // Read something.
-// func Read(m Music) error {
-// 	return m.Find()
-// }
-
-// // Update something.
-// func Update(m Music) error {
-// 	return m.Update()
-// }
-
-// // Delete something.
-// func Delete(m Music) error {
-// 	return m.Delete()
-// }
-
-// // Search for something
-// func Search(m Music, v interface{}) error {
-// 	return m.FindAll(&v)
-// }
-
 // Init starts the database.
 func Init() {
 
@@ -63,6 +28,7 @@ func Init() {
 	DB.AutoMigrate(&Song{})
 	DB.AutoMigrate(&Artist{})
 	DB.AutoMigrate(&Album{})
+	DB.AutoMigrate(&User{})
 }
 
 // Close the database.

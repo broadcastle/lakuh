@@ -18,5 +18,9 @@ go build
 ## Roadmap
 
 [x] Play Music
+
 [ ] Web Interface
+
+[ ] Tags
+
 [ ] Distrobution

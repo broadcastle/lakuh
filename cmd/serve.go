@@ -1,8 +1,7 @@
 package cmd
 
 import (
-	"fmt"
-
+	"broadcastle.co/code/lakuh/pkg/web"
 	"github.com/spf13/cobra"
 )
 
@@ -12,7 +11,7 @@ var serveCmd = &cobra.Command{
 	Short: "Start the web interface.",
 	Run: func(cmd *cobra.Command, args []string) {
 
-		fmt.Println("serve called")
+		web.Web()
 	},
 }
 
