@@ -1,6 +1,11 @@
 package library
 
-import "github.com/spf13/cobra"
+import (
+	"strconv"
+
+	"github.com/labstack/echo"
+	"github.com/spf13/cobra"
+)
 
 // Audio has the input information.
 type Audio struct {
@@ -39,4 +44,19 @@ func cflag(cmd *cobra.Command) (result Audio, err error) {
 
 	return
 
+}
+
+// Echo gets a ID from the context.
+func (a *Audio) Echo(c echo.Context) error {
+
+	i := c.Param("audio")
+
+	id, err := strconv.Atoi(i)
+	if err != nil {
+		return err
+	}
+
+	a.ID = id
+
+	return nil
 }

@@ -8,8 +8,25 @@ import (
 
 	"broadcastle.co/code/lakuh/pkg/utils"
 	homedir "github.com/mitchellh/go-homedir"
+	"github.com/sirupsen/logrus"
+	"github.com/spf13/cobra"
 	"github.com/spf13/viper"
 )
+
+var initCmd = &cobra.Command{
+	Use:   "init",
+	Short: "Generate a default config file.",
+	Args:  cobra.NoArgs,
+	Run: func(cmd *cobra.Command, args []string) {
+		if err := generateDefaults(); err != nil {
+			logrus.Fatal(err)
+		}
+	},
+}
+
+func init() {
+	RootCmd.AddCommand(initCmd)
+}
 
 func generateDefaults() error {
 

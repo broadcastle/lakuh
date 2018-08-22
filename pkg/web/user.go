@@ -1,7 +1,6 @@
 package web
 
 import (
-	"fmt"
 	"net/http"
 	"time"
 
@@ -84,13 +83,9 @@ func userLogin(c echo.Context) error {
 		return c.JSON(http.StatusInternalServerError, err)
 	}
 
-	fmt.Println(user)
-
 	if err := user.Login(); err != nil {
 		return c.JSON(http.StatusMethodNotAllowed, err)
 	}
-
-	fmt.Println(user)
 
 	token := jwt.New(jwt.SigningMethodHS256)
 

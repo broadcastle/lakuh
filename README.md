@@ -17,10 +17,9 @@ go build
 
 ## Roadmap
 
-[x] Play Music
-
-[ ] Web Interface
-
-[ ] Tags
-
-[ ] Distrobution
+- [x] Play Music
+- [x] Web API
+- [ ] Web Interface
+- [ ] Tags
+- [ ] Thumbnails
+- [ ] Distribution

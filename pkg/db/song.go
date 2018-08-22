@@ -2,6 +2,7 @@ package db
 
 import (
 	"errors"
+	"os"
 	"time"
 
 	"broadcastle.co/code/lakuh/pkg/utils"
@@ -78,6 +79,13 @@ func (s *Song) Update() error {
 
 // Delete a song.
 func (s *Song) Delete() error {
+
+	if err := s.Find(); err != nil {
+		return err
+	}
+
+	os.Remove(s.Location)
+
 	return DB.Delete(&s).Error
 }
 
@@ -89,4 +97,14 @@ func (s *Song) Find() error {
 // FindAll songs that match s.
 func (s *Song) FindAll(v interface{}) error {
 	return DB.Where(&s).Find(&v).Error
+}
+
+// AllSongs returns all songs in the database.
+func AllSongs() ([]Song, error) {
+
+	song := []Song{}
+
+	err := DB.Find(&song).Error
+	return song, err
+
 }

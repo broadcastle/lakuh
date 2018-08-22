@@ -47,7 +47,39 @@ func (a *Audio) View() error {
 	a.Album = album.Title
 	a.Artist = artist.Name
 	a.Genre = song.Genre
-	a.Year = song.Year
+	a.Year = album.Year
 
 	return nil
+}
+
+// AllAudio return multiple audio files.
+func AllAudio() ([]Audio, error) {
+
+	all := []Audio{}
+
+	songs, err := db.AllSongs()
+	if err != nil {
+		return all, err
+	}
+
+	for _, x := range songs {
+		song, artist, album, err := db.AllSongInfo(int(x.ID))
+		if err != nil {
+			return all, err
+		}
+
+		single := Audio{
+			ID:     int(song.ID),
+			Title:  song.Title,
+			Album:  album.Title,
+			Artist: artist.Name,
+			Year:   album.Year,
+			Genre:  song.Genre,
+		}
+
+		all = append(all, single)
+	}
+
+	return all, nil
+
 }

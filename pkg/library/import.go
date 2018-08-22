@@ -86,6 +86,7 @@ func (a Audio) Import(src string) error {
 		Title: a.Title,
 		MIME:  mime,
 		Genre: a.Genre,
+		Year:  a.Year,
 	}
 
 	// Get storage location.
